@@ -1,12 +1,8 @@
 {
   "name": "hello-world",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "generate:api": "openapi-generator-cli generate -i ./openapi/hello.yaml -g typescript-angular -o src/app/hello-api"
   },
   "private": true,
   "dependencies": {
@@ -36,8 +32,5 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.3.5"
-  },
-  "scripts": {
-    "generate:api": "openapi-generator-cli generate -i ./openapi/hello.yaml -g typescript-angular -o src/app/hello-api"
   }
 }

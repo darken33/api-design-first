@@ -127,11 +127,11 @@
                             <inputSpec>${project.basedir}/src/main/resources/api/hello.yaml</inputSpec>
                             <generatorName>spring</generatorName>
                             <generateApis>true</generateApis>
-                            <generateApiDocumentation>false</generateApiDocumentation>
-                            <generateApiTests>false</generateApiTests>
+                            <generateApiDocumentation>true</generateApiDocumentation>
+                            <generateApiTests>true</generateApiTests>
                             <generateModels>true</generateModels>
-                            <generateModelDocumentation>false</generateModelDocumentation>
-                            <generateModelTests>false</generateModelTests>
+                            <generateModelDocumentation>true</generateModelDocumentation>
+                            <generateModelTests>true</generateModelTests>
                             <generateSupportingFiles>true</generateSupportingFiles>
                             <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
                             <apiPackage>com.sqli.pbousquet.helloapi.generated.api.server</apiPackage>

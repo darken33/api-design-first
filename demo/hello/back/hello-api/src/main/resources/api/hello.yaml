@@ -10,9 +10,9 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0
-  version: 0.0.5
+  version: 1.0.0
 servers:
-- url: //localhost:8080/
+- url: localhost:8080
 tags:
 - name: Hello
   description: Hello API
@@ -30,15 +30,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HelloDto'
-        401:
+        500:
           description: Unauthorized
-          content: {}
-        403:
-          description: Forbidden
-          content: {}
-        404:
-          description: Not Found
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
       deprecated: false
   /api/v1/hello/{name}:
     get:
@@ -64,18 +61,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HelloDto'
-        400:
-          description: Mauvaise requête, 123 n'est pas une valeurs valide
-          content: {}
-        401:
+        500:
           description: Unauthorized
-          content: {}
-        403:
-          description: Forbidden
-          content: {}
-        404:
-          description: Not Found
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
       deprecated: false
 components:
   schemas:
@@ -86,3 +77,23 @@ components:
         message:
           type: string
           example: "Hello World"
+    ApiErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          example: "2023-10-10T08:17:11.441+00:00"
+          format: date-time
+        status:
+          type: integer
+          example: 500
+          format: int32
+        error:
+          type: string
+          example: "Internal Server Error"
+        message:
+          type: string
+          example: "helloUsingGET.name: size must be between 2 and 25"
+        path:
+          type: string
+          example: "/api/v1/hello/i"
