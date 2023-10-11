@@ -2,7 +2,7 @@
   "name": "hello-world",
   "version": "1.0.0",
   "scripts": {
-    "generate:api": "openapi-generator-cli generate -i ./openapi/hello.yaml -g typescript-angular -o src/app/hello-api"
+    "generate:api": "openapi-generator-cli generate -i ../../hello.yaml -g typescript-angular -o src/app/hello-api"
   },
   "private": true,
   "dependencies": {
